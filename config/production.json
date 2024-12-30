@@ -1,0 +1,71 @@
+{
+  "zuix": {
+    "build": {
+      "input": "source",
+      "output": "docs",
+      "copy": [
+        "css",
+        "images",
+        ".nojekyll",
+        "browserconfig.xml",
+        "manifest.json",
+        "humans.txt",
+        "favicon.ico",
+        "robots.txt",
+        "content/**/*.jpg",
+        "content/**/*.png",
+        "content/**/*.webp",
+        "content/**/*.gif",
+        "content/**/*.svg",
+        "content/**/*.json"
+      ],
+      "ignore": [
+        "_filters",
+        "content/**/_inc/*"
+      ],
+      "dataFolder": "_data",
+      "includesFolder": "_inc",
+      "componentsFolders": [ "app" ],
+      "contentFolder": "content",
+      "dependencies": [{
+        "zuix-dist/js": "js/zuix",
+        "fuse.js/dist": "js/fuse",
+        "flex-layout-attribute/css": "css/fla"
+      }],
+      "bundle": {
+        "js": true,
+        "css": true,
+        "zuix": true
+      },
+      "mirror": "",
+      "serviceWorker": true,
+      "minify": {
+        "disable": false,
+        "collapseWhitespace": true,
+        "removeOptionalTags": true,
+        "removeRedundantAttributes": true,
+        "removeScriptTypeAttributes": true,
+        "removeTagWhitespace": false,
+        "useShortDoctype": false,
+        "collapseBooleanAttributes": true,
+        "removeAttributeQuotes": false,
+        "removeEmptyAttributes": true,
+        "minifyCSS": false,
+        "minifyJS": true
+      }
+    },
+    "app": {
+      "title": "Web Starter",
+      "subtitle": "Simple, yet powerful!",
+      "language": "en",
+      "baseUrl": "/zuix-web-starter/",
+      "resourcePath": "{{ app.baseUrl }}app/",
+      "libraryPath": {
+        "@lib": "https://zuixjs.github.io/zkit/lib/1.2/",
+        "@hgui": "https://genielabs.github.io/homegenie-web-ui/app/",
+        "@cdnjs": "https://cdnjs.cloudflare.com/ajax/libs/"
+      },
+      "siteMapUrl": "https://zuixjs.github.io{{ app.baseUrl }}"
+    }
+  }
+}
