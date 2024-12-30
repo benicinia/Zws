@@ -1,0 +1,57 @@
+{% unless options contains 'no-footer' %}
+<footer #footer layout="column bottom-center" style="min-height: 200px;">
+
+    <div self="size-large" layout="rows top-justify">
+        <section>
+            <div><strong>{{ app.title }}</strong></div>
+            <ul>
+                {% assign sections = collections.sections | sort: 'data.order' %}
+                {% for item in sections %}
+                    <li>
+                        <a href="{{ item.url | url }}">{{ item.data.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% if group == blank %}{% assign group = 'all' %}{% endif %}
+        {% assign posts = collections[group] | sort: 'data.pubDate' | sort: 'data.order' | reverse %}
+        {% if posts.size > 0 %}
+        <section>
+            <div><strong>Latest posts</strong></div>
+            <ul>
+                {% for item in posts limit:4 %}
+                    <li><a href="{{ item.url | url }}">{{ item.data.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </section>
+        {% endif %}
+        {% if links.size > 0 %}
+        <section>
+            {% if links %}
+            <div><strong>Links</strong></div>
+            <ul>
+                {% for item in links %}
+                    <li><a href="{{ item.link | url }}">{{ item.title }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </section>
+        {% endif %}
+    </div>
+
+    <div self="size-large" layout="row center-spread" style="padding: 12px;">
+
+        <div self="left">
+            <a href="{{ '/feed/rss.xml' | url }}" layout="row bottom-left" style="gap: 6px">
+                <img src="{{ '/images/rss-feed.png' | url }}" width="24" height="24" alt="RSS feed logo">
+                <span>RSS feed</span>
+            </a>
+        </div>
+        <div self="right">
+            powered by <a href="https://zuixjs.github.io/zkit"><strong>zKit</strong></a> and <a href="https://zuixjs.org"><strong>zuix⚡js</strong></a>
+        </div>
+
+    </div>
+
+</footer>
+{% endunless %}
