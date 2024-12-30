@@ -1,0 +1,40 @@
+---
+title: 'zUIx Web Starter'
+link: 'https://github.com/zuixjs/zuix-web-starter'
+head:
+  title: 'zUIx Web Starter'
+  description: 'Component-based web development.'
+---
+{% include "_inc/head_open.html" %}
+    <link rel="stylesheet" href="index.css">
+    <!-- put any custom content that goes inside `<head>` here -->
+{% include "_inc/head_close.html" %}
+<body>
+
+    <header>
+        <h1>Welcome!</h1>
+    </header>
+
+    <main>
+
+        <h2>Documentation</h2>
+        <ul>
+            <li>
+                <a href="{{link}}">{{title}}</a>
+            </li>
+            <li>
+                <a href="https://zuixjs.github.io/zuix/#/docs">zUIx documentation</a>
+            </li>
+            <li>
+                <a href="https://github.com/paulcpederson/static-site">Static-Site</a>
+            </li>
+        </ul>
+
+    </main>
+
+    <footer></footer>
+
+    <script src="index.js"></script>
+{% include "_inc/body_end.html" %}
+</body>
+{% include "_inc/html_close.html" %}
